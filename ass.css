@@ -1,0 +1,27 @@
+#background{
+    background-image: url(images/bgbanner.png);
+}
+#join-forum{
+    background-image: url(images/Rectangle\ 1.png);
+}
+
+.card-info{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+    /* background-color: gainsboro; */
+    padding: 8px;
+    /* border: 2px; */
+   
+    background-color: white;
+    margin: 10px;
+    border: 10px;
+    border-radius: 15px;
+
+}
+#images-descrption{
+    padding-left: 20px;
+}
+#addToCard{
+   background-color: black; 
+}
