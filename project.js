@@ -1,7 +1,8 @@
-let allPost =async (category)=>{
-  
-    let allPostData =await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts${category}`)
+let allPost =async (category='Music')=>{
+//   console.log(category)
+    let allPostData =await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${category}`)
     let dataJs = await allPostData.json()
+    console.log(dataJs)
 let red = document.getElementById('details')
 // let big = document.getElementById('card-details')
     let data = dataJs.posts
@@ -12,14 +13,23 @@ let red = document.getElementById('details')
 
     data.forEach(items => {
       
-        // console.log(items)
+        console.log(items.isActive)
 
 let div = document.createElement('div')
 div.classList = 'flex gap-5 justify-center  bg-[#F3F3F5] h-56 p-8 rounded-2xl space-y-1'
+
+div.innerHTML.image
 div.innerHTML = `
 
  <div>
-    <img class ="w-20" src=${items.image}>
+   
+    <div id="old" class="avatar online">
+  <div class="w-24 rounded-full">
+    <img src="${items.image}" />
+  </div>
+</div>
+
+    
     </div>
     
 <div class="space-y-2">
@@ -103,6 +113,7 @@ let latestPost =async () =>{
     let arItems = data
     // console.log(arItems)
     let card = document.getElementById('latestCard')
+    
    
 
     arItems.forEach(items=>{
@@ -113,6 +124,7 @@ let latestPost =async () =>{
    
         // console.log(items)
         let div= document.createElement('div')
+        
         div.classList = 'card bg-base-100 w-[350px] shadow-xl '
         div.classList.add("addToCard")
         div.innerHTML = `
@@ -166,8 +178,9 @@ card.appendChild(div)
 let searchButton = ()=>{
    
     let input = document.getElementById('inputField').value 
+    
     // console.log(input)
-   allPost(`?category=${input}`)
+allPost(input)
     // console.log(content)
     // allPost(input)
 }
@@ -177,5 +190,5 @@ let searchButton = ()=>{
 
 allPost()
 latestPost()
-searchButton()
+searchButton('')
 
