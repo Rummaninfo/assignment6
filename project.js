@@ -1,9 +1,10 @@
-let allPost =async (category='Music')=>{
+let allPost =async (category ="Comedy")=>{
 //   console.log(category)
     let allPostData =await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${category}`)
     let dataJs = await allPostData.json()
     console.log(dataJs)
 let red = document.getElementById('details')
+red.innerHTML = ''
 // let big = document.getElementById('card-details')
     let data = dataJs.posts
 
@@ -16,6 +17,7 @@ let red = document.getElementById('details')
         console.log(items.isActive)
 
 let div = document.createElement('div')
+
 div.classList = 'flex gap-5 justify-center  bg-[#F3F3F5] h-56 p-8 rounded-2xl space-y-1'
 
 div.innerHTML.image
@@ -190,5 +192,5 @@ allPost(input)
 
 allPost()
 latestPost()
-searchButton('')
+searchButton()
 
